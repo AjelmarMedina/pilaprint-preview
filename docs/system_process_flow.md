@@ -1,4 +1,4 @@
-## **PILAPRINT SYSTEM PROCESS FLOW** 
+# **PILAPRINT SYSTEM PROCESS FLOW** 
 
 ## **Website Interface and User Navigation** 
 
@@ -38,13 +38,13 @@ This process enables students to efficiently locate nearby printing services, su
 
 ## **PHASE 1 — USER REGISTRATION & LOGIN** 
 
-## **Student Side** 
+### **Student Side** 
 
 Students create an account using: 
 
 - Email Address 
 
-## ● Mobile Number 
+- Mobile Number 
 
 - School/University 
 
@@ -66,7 +66,7 @@ After registration, students gain access to a personal dashboard containing:
 
 - Terms and COndition 
 
-## **Printing Shop Side** 
+### **Printing Shop Side** 
 
 Printing shop owners register their businesses by submitting: 
 
@@ -100,7 +100,7 @@ The platform administrator verifies and approves partner shops before activation
 
 Students may choose from multiple academic document services such as: 
 
-## **Main Services** 
+### **Main Services** 
 
 1. Black & White Printing 
 
@@ -124,9 +124,9 @@ Students may choose from multiple academic document services such as:
 
 PilaPrint offers bundled academic packages to simplify student transactions. 
 
-## **Examples of Packages** 
+### **Examples of Packages** 
 
-## **Proposal Package** 
+1. **Proposal Package** 
 
 Includes: 
 
@@ -136,7 +136,7 @@ Includes:
 
 - cover page setup 
 
-## **Defense Package** 
+2. **Defense Package** 
 
 Includes: 
 
@@ -146,7 +146,7 @@ Includes:
 
 - spiral binding 
 
-## **Final Manuscript Package** 
+3. **Final Manuscript Package** 
 
 Includes: 
 
@@ -198,7 +198,7 @@ This feature helps reduce:
 
 Students customize document specifications including: 
 
-## **Printing Options** 
+### **Printing Options** 
 
 1. Colored or Black & White 
 
@@ -214,7 +214,7 @@ Students customize document specifications including:
 
    - Legal 
 
-## **Binding Options** 
+### **Binding Options** 
 
 - Spiral 
 
@@ -222,7 +222,7 @@ Students customize document specifications including:
 
 - Hardbound 
 
-## **Additional Services** 
+### **Additional Services** 
 
 - Laminating 
 
@@ -268,7 +268,7 @@ Students can pay through multiple payment methods including:
 
 - Cash upon Pickup 
 
-## **PRINTING WALLET SYSTEM** 
+### **PRINTING WALLET SYSTEM** 
 
 Students may load credits into a digital Printing Wallet. Benefits include: 
 
@@ -326,7 +326,7 @@ The Business Owner Dashboard functions as the operational center of the printing
 
 ## **BUSINESS DASHBOARD FEATURES** 
 
-## **1. DAILY TRANSACTIONS DASHBOARD** 
+1. **DAILY TRANSACTIONS DASHBOARD** 
 
 Printing shop owners can view all customer transactions processed within the day. The dashboard displays: 
 
@@ -362,7 +362,7 @@ Colored Complet PP-104 ₱120 Printing ed Thesis PP-105 ₱350 Ongoing Binding
 
 This feature helps business owners organize customer orders and monitor operational flow efficiently. 
 
-## **2. DAILY PROFIT DASHBOARD** 
+2. **DAILY PROFIT DASHBOARD** 
 
 PilaPrint also provides a Daily Profit Monitoring System where printing shop owners can track their earnings and estimated income in real time. 
 
@@ -396,7 +396,7 @@ The system also identifies:
 
 This allows business owners to evaluate business performance and make operational decisions more efficiently 
 
-## **3. SALES ANALYTICS FEATURE** 
+3. **SALES ANALYTICS FEATURE** 
 
 The platform generates graphical analytics for: 
 
@@ -420,7 +420,7 @@ This helps printing businesses:
 
 - improve pricing strategies 
 
-## **4. INVENTORY MONITORING SYSTEM** 
+4. **INVENTORY MONITORING SYSTEM** 
 
 The dashboard also monitors: 
 
@@ -436,7 +436,7 @@ The system automatically sends low-stock alerts when supplies are nearly deplete
 
 This minimizes operational delays and improves inventory management. 
 
-## **5. QUEUE DASHBOARD MONITORING** 
+5. **QUEUE DASHBOARD MONITORING** 
 
 Printing shops can monitor: 
 
