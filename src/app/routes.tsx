@@ -3,7 +3,7 @@ import {
   createBrowserRouter, useNavigate, Outlet, NavLink, useLocation,
 } from "react-router";
 import { ImageWithFallback } from "@/app/components/figma/ImageWithFallback";
-import logoFull from "@/imports/image-3.png";
+import logoFull from "@/imports/primary.png";
 import {
   Upload, FileText, CreditCard, Bell, Star, MapPin, Printer,
   Package, Clock, CheckCircle, BarChart2, Wallet, Gift, Users,
