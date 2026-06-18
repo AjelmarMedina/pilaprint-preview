@@ -113,8 +113,8 @@ function StatusBadge({ status }: { status: string }) {
   };
   const s = map[status] || map.pending;
   return (
-    <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold" style={{ background: s.bg, color: s.text }}>
-      {s.label}
+    <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold" style={{ background: s?.bg, color: s?.text }}>
+      {s?.label}
     </span>
   );
 }
@@ -266,10 +266,10 @@ export function LandingPage() {
             <p className="text-gray-500 text-sm" style={ff}>Trusted by students across Dasmariñas, Cavite</p>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
-            {UNIVERSITIES.map((u) => (
+            {UNIVERSITIES.map((u: any) => (
               <div key={u.abbr} className="flex flex-col items-center gap-2 p-3 rounded-2xl bg-gray-50 hover:bg-white hover:shadow-md transition-all cursor-pointer border border-transparent hover:border-gray-100">
                 <div className="w-12 h-12 rounded-xl flex items-center justify-center text-white text-xs font-bold" style={{ background: u.color, ...ffH }}>{u.abbr}</div>
-                <p className="text-xs text-gray-600 text-center leading-tight" style={ff}>{u.name.split("–")[0].trim()}</p>
+                <p className="text-xs text-gray-600 text-center leading-tight" style={ff}>{u.name?.split("–")[0].trim()}</p>
               </div>
             ))}
           </div>
@@ -824,7 +824,7 @@ export function StudentDashboardLayout() {
           </div>
         </div>
         <nav className="flex-1 p-4 space-y-1">
-          {navItems.map((item) => (
+          {navItems.map((item: any) => (
             <NavLink
               key={item.to}
               to={item.to}
@@ -1706,7 +1706,7 @@ export function BusinessDashboardLayout() {
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 border-t border-gray-100">
           <div className="flex gap-1 overflow-x-auto">
-            {tabs.map((t) => (
+            {tabs.map((t: any) => (
               <NavLink
                 key={t.to}
                 to={t.to}
