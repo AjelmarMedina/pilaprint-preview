@@ -4,6 +4,19 @@ import {
 } from "react-router";
 import { ImageWithFallback } from "@/app/components/figma/ImageWithFallback";
 import logoFull from "@/imports/primary.png";
+import { B, StatusBadge, ff, ffH } from "./routes/shared";
+import {
+  BIZ_ORDERS,
+  INVENTORY,
+  REVENUE_DATA,
+  SERVICE_DATA,
+  SHOPS,
+  STUDENT_ORDERS,
+  UNIVERSITIES,
+  WEEKLY_DATA,
+} from "./routes/data";
+import { LandingPage as LandingPageRoute } from "./routes/page";
+import { NotFoundPage as NotFoundPageRoute } from "./routes/not-found";
 import {
   Upload, FileText, CreditCard, Bell, Star, MapPin, Printer,
   Package, Clock, CheckCircle, BarChart2, Wallet, Gift, Users,
@@ -15,112 +28,6 @@ import {
   AreaChart, Area, BarChart, Bar,
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
 } from "recharts";
-
-// ─── Brand Colors ─────────────────────────────────────────────────────────────
-
-const B = {
-  azure:     "#1B7FFD",
-  sakura:    "#F0A5B7",
-  verdant:   "#5AA864",
-  solar:     "#FFC605",
-  tangerine: "#EA6D06",
-};
-
-// ─── Static Data ──────────────────────────────────────────────────────────────
-
-const UNIVERSITIES = [
-  { abbr: "NU-D",    name: "National University – Dasmariñas",           color: B.azure },
-  { abbr: "DLSU-D",  name: "De La Salle University – Dasmariñas",        color: B.verdant },
-  { abbr: "EAC",     name: "Emilio Aguinaldo College – Cavite",           color: B.tangerine },
-  { abbr: "NCST",    name: "National College of Science & Technology",    color: B.sakura },
-  { abbr: "AISAT",   name: "AISAT College",                               color: B.solar },
-  { abbr: "CVSU",    name: "CVSU Dasma",                                  color: B.verdant },
-  { abbr: "SJC-PCU", name: "Saint Jude Dasma PCU",                        color: B.azure },
-  { abbr: "TUP",     name: "Technological University Philippines",         color: B.tangerine },
-  { abbr: "KLD",     name: "KLD College",                                 color: B.sakura },
-  { abbr: "MOL",     name: "MOL Magsaysay",                               color: B.solar },
-  { abbr: "DLSHI",   name: "De La Salle Health Sciences Institute",       color: B.azure },
-  { abbr: "FEPC",    name: "FEPC",                                        color: B.verdant },
-];
-
-const SHOPS = [
-  { id: 1, name: "PrintMaster Dasmariñas", university: "NU-D",   distance: "150m from NU-D",   rating: 4.8, reviews: 234, services: ["B&W Printing","Color Printing","Binding","Laminating"],          hours: "7:00 AM – 9:00 PM",  priceFrom: 2,   color: B.azure },
-  { id: 2, name: "Quick Copy Hub",          university: "DLSU-D", distance: "200m from DLSU-D", rating: 4.6, reviews: 189, services: ["B&W Printing","Color Printing","Thesis Packages","Scanning"],     hours: "8:00 AM – 8:00 PM",  priceFrom: 1.5, color: B.verdant },
-  { id: 3, name: "Campus Print Station",    university: "EAC",    distance: "80m from EAC",     rating: 4.9, reviews: 312, services: ["All Services","Thesis Packages","Group Orders"],                  hours: "7:30 AM – 10:00 PM", priceFrom: 2,   color: B.tangerine },
-  { id: 4, name: "UniPrint Express",        university: "NCST",   distance: "300m from NCST",   rating: 4.5, reviews: 156, services: ["B&W Printing","Color Printing","Binding"],                        hours: "8:00 AM – 7:00 PM",  priceFrom: 1.5, color: B.sakura },
-  { id: 5, name: "TUP Copy Center",         university: "TUP",    distance: "50m from TUP",     rating: 4.7, reviews: 201, services: ["B&W Printing","Scanning","Laminating","Spiral Binding"],          hours: "7:00 AM – 8:00 PM",  priceFrom: 1.5, color: B.solar },
-  { id: 6, name: "AcadPrint CVSU",          university: "CVSU",   distance: "120m from CVSU",   rating: 4.4, reviews: 98,  services: ["B&W Printing","Color Printing","Thesis Binding"],                 hours: "8:00 AM – 6:00 PM",  priceFrom: 2,   color: B.verdant },
-];
-
-const STUDENT_ORDERS = [
-  { id: "PP-108", service: "Defense Package",  pages: 80, amount: 850, status: "pending",   shop: "PrintMaster Dasmariñas", date: "Jun 18, 2026" },
-  { id: "PP-105", service: "Thesis Binding",   pages: 80, amount: 350, status: "ongoing",   shop: "Quick Copy Hub",          date: "Jun 17, 2026" },
-  { id: "PP-104", service: "Colored Printing", pages: 15, amount: 120, status: "completed", shop: "PrintMaster Dasmariñas", date: "Jun 17, 2026" },
-  { id: "PP-103", service: "Laminating",       pages: 5,  amount: 75,  status: "completed", shop: "UniPrint Express",        date: "Jun 15, 2026" },
-];
-
-const BIZ_ORDERS = [
-  { id: "PP-104", customer: "Maria Santos",    service: "Colored Printing",  payment: "GCash", amount: 120,  status: "completed" },
-  { id: "PP-105", customer: "Juan dela Cruz",  service: "Thesis Binding",    payment: "Cash",  amount: 350,  status: "ongoing" },
-  { id: "PP-106", customer: "Ana Reyes",       service: "B&W Printing",      payment: "Maya",  amount: 45,   status: "pending" },
-  { id: "PP-107", customer: "Carlos Mendoza",  service: "Laminating",        payment: "GCash", amount: 75,   status: "ready" },
-  { id: "PP-108", customer: "Liza Cruz",       service: "Defense Package",   payment: "Card",  amount: 850,  status: "completed" },
-];
-
-const REVENUE_DATA = [
-  { day: "Mon", revenue: 3200, expenses: 900  },
-  { day: "Tue", revenue: 4100, expenses: 1100 },
-  { day: "Wed", revenue: 3800, expenses: 950  },
-  { day: "Thu", revenue: 5200, expenses: 1800 },
-  { day: "Fri", revenue: 6100, expenses: 2000 },
-  { day: "Sat", revenue: 7200, expenses: 2200 },
-  { day: "Sun", revenue: 4500, expenses: 1200 },
-];
-
-const WEEKLY_DATA = [
-  { week: "Week 1", revenue: 22000 },
-  { week: "Week 2", revenue: 28000 },
-  { week: "Week 3", revenue: 25000 },
-  { week: "Week 4", revenue: 31000 },
-];
-
-const SERVICE_DATA = [
-  { name: "B&W Print",   value: 38, color: B.azure },
-  { name: "Color Print", value: 27, color: B.tangerine },
-  { name: "Binding",     value: 20, color: B.verdant },
-  { name: "Laminating",  value: 10, color: B.solar },
-  { name: "Scanning",    value: 5,  color: B.sakura },
-];
-
-const INVENTORY = [
-  { item: "A4 Bond Paper (500s)",   stock: 12, unit: "reams",  low: 5,  color: B.azure },
-  { item: "Black Ink Cartridge",    stock: 3,  unit: "pcs",    low: 3,  color: B.tangerine },
-  { item: "Color Ink Cartridge",    stock: 2,  unit: "sets",   low: 3,  color: B.sakura },
-  { item: "Spiral Coil (A4)",       stock: 45, unit: "pcs",    low: 20, color: B.verdant },
-  { item: "Laminating Film (100s)", stock: 8,  unit: "packs",  low: 5,  color: B.solar },
-  { item: "Softcover Board",        stock: 18, unit: "pcs",    low: 10, color: B.azure },
-];
-
-// ─── Shared Utilities ─────────────────────────────────────────────────────────
-
-function StatusBadge({ status }: { status: string }) {
-  const map: Record<string, { label: string; bg: string; text: string }> = {
-    completed: { label: "Completed", bg: "#dcfce7", text: "#166534" },
-    ongoing:   { label: "Ongoing",   bg: "#dbeafe", text: "#1e40af" },
-    pending:   { label: "Pending",   bg: "#fef9c3", text: "#854d0e" },
-    ready:     { label: "Ready",     bg: "#fce7f3", text: "#9d174d" },
-    cancelled: { label: "Cancelled", bg: "#fee2e2", text: "#991b1b" },
-  };
-  const s = map[status] || map.pending;
-  return (
-    <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold" style={{ background: s?.bg, color: s?.text }}>
-      {s?.label}
-    </span>
-  );
-}
-
-const ff  = { fontFamily: "'Poppins', sans-serif" };
-const ffH = { fontFamily: "'Fredoka', sans-serif" };
 
 // ─── Navbar ───────────────────────────────────────────────────────────────────
 
@@ -1746,7 +1653,7 @@ export function NotFoundPage() {
 // ─── Router ───────────────────────────────────────────────────────────────────
 
 export const router = createBrowserRouter([
-  { path: "/",                    Component: LandingPage },
+  { path: "/",                    Component: LandingPageRoute },
   { path: "/student/login",       Component: StudentAuthPage },
   { path: "/student/register",    Component: StudentAuthPage },
   {
@@ -1776,7 +1683,7 @@ export const router = createBrowserRouter([
       { path: "queue",            Component: BizQueue },
     ],
   },
-  { path: "*",                    Component: NotFoundPage },
+  { path: "*",                    Component: NotFoundPageRoute },
 ]);
 
 // ─── App ──────────────────────────────────────────────────────────────────────
