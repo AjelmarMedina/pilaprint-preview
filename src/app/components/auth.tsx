@@ -109,3 +109,106 @@ export function StudentAuthView({ mode }: StudentAuthViewProps) {
     </div>
   );
 }
+
+type BusinessAuthViewProps = {
+  mode: "login" | "register";
+};
+
+export function BusinessAuthView({ mode }: BusinessAuthViewProps) {
+  const nav = useNavigate();
+  const isRegister = mode === "register";
+
+  return (
+    <div className="min-h-screen flex">
+      <div className="hidden lg:flex flex-col justify-between w-1/2 p-12 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #EA6D06 0%, #FFC605 100%)" }}>
+        <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-white/10 -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-48 h-48 rounded-full bg-black/10 translate-y-1/2 -translate-x-1/2 pointer-events-none" />
+        <button onClick={() => nav("/")} className="relative z-10">
+          <ImageWithFallback src={logoFull} alt="PilaPrint" className="h-12 w-auto object-contain brightness-0 invert" />
+        </button>
+        <div className="relative z-10">
+          <h2 className="text-4xl font-bold text-white mb-4" style={ffH}>Grow Your Printing Business.</h2>
+          <p className="text-orange-100 text-lg leading-relaxed mb-8" style={ff}>Join PilaPrint's partner network and reach thousands of students across Dasmariñas, Cavite.</p>
+          <div className="space-y-3">
+            {[
+              "Access the digital order management dashboard",
+              "Real-time sales analytics and profit tracking",
+              "Inventory monitoring with low-stock alerts",
+              "Automated queue management system",
+            ].map((b) => (
+              <div key={b} className="flex items-start gap-3">
+                <div className="mt-0.5 h-[18px] w-[18px] rounded-full border border-white flex items-center justify-center">
+                  <span className="h-2 w-2 rounded-full bg-white" />
+                </div>
+                <p className="text-white text-sm" style={ff}>{b}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+        <p className="text-orange-100 text-sm relative z-10" style={ff}>© 2026 PilaPrint. For Business Partners.</p>
+      </div>
+
+      <div className="flex-1 flex items-center justify-center p-4 sm:p-8 bg-[#FEFDF8]">
+        <div className="w-full max-w-md">
+          <div className="lg:hidden mb-8">
+            <button onClick={() => nav("/")}><ImageWithFallback src={logoFull} alt="PilaPrint" className="h-10 w-auto object-contain" /></button>
+          </div>
+          <div className="flex bg-gray-100 rounded-xl p-1 mb-8">
+            <button onClick={() => nav("/business/login")} className={`flex-1 py-2.5 rounded-lg text-sm font-medium transition-all ${!isRegister ? "bg-white text-[#EA6D06] shadow-sm" : "text-gray-500 hover:text-gray-700"}`} style={ff}>Sign In</button>
+            <button onClick={() => nav("/business/register")} className={`flex-1 py-2.5 rounded-lg text-sm font-medium transition-all ${isRegister ? "bg-white text-[#EA6D06] shadow-sm" : "text-gray-500 hover:text-gray-700"}`} style={ff}>Register Shop</button>
+          </div>
+
+          {!isRegister ? (
+            <div>
+              <h1 className="text-2xl font-bold text-gray-900 mb-1" style={ffH}>Welcome back! 🏪</h1>
+              <p className="text-gray-500 text-sm mb-6" style={ff}>Sign in to your shop dashboard</p>
+              <div className="space-y-4">
+                <input type="email" placeholder="shop@email.com" className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-sm focus:outline-none focus:ring-2 focus:ring-[#EA6D06]/30 focus:border-[#EA6D06] transition-all" style={ff} />
+                <input type="password" placeholder="••••••••" className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-sm focus:outline-none focus:ring-2 focus:ring-[#EA6D06]/30 focus:border-[#EA6D06] transition-all" style={ff} />
+                <button onClick={() => nav("/business/dashboard")} className="w-full py-3.5 text-white font-bold rounded-xl hover:opacity-90 transition-all shadow-lg" style={{ background: "linear-gradient(135deg, #EA6D06, #FFC605)", ...ffH, fontSize: "1rem" }}>
+                  Sign In to Dashboard
+                </button>
+              </div>
+            </div>
+          ) : (
+            <div>
+              <h1 className="text-2xl font-bold text-gray-900 mb-1" style={ffH}>Register Your Shop 🏪</h1>
+              <p className="text-gray-500 text-sm mb-6" style={ff}>Submit for admin verification. Activation within 24 hours.</p>
+              <div className="space-y-4">
+                {[
+                  { label: "Business Name", placeholder: "PrintMaster Dasmariñas", type: "text" },
+                  { label: "Store Location", placeholder: "123 Aguinaldo Hwy, Dasmariñas", type: "text" },
+                  { label: "Contact Number", placeholder: "09XX XXX XXXX", type: "tel" },
+                  { label: "Email Address", placeholder: "shop@email.com", type: "email" },
+                  { label: "BIR / TIN Number", placeholder: "XXX-XXX-XXX-000", type: "text" },
+                ].map((field) => (
+                  <div key={field.label}>
+                    <label className="block text-sm font-medium text-gray-700 mb-1.5" style={ff}>{field.label}</label>
+                    <input type={field.type} placeholder={field.placeholder} className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-sm focus:outline-none focus:ring-2 focus:ring-[#EA6D06]/30 focus:border-[#EA6D06] transition-all" style={ff} />
+                  </div>
+                ))}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1.5" style={ff}>Operating Hours</label>
+                  <div className="grid grid-cols-2 gap-2">
+                    <input type="time" defaultValue="07:00" className="px-3 py-3 rounded-xl border border-gray-200 bg-gray-50 text-sm focus:outline-none focus:ring-2 focus:ring-[#EA6D06]/30" />
+                    <input type="time" defaultValue="21:00" className="px-3 py-3 rounded-xl border border-gray-200 bg-gray-50 text-sm focus:outline-none focus:ring-2 focus:ring-[#EA6D06]/30" />
+                  </div>
+                </div>
+                <button onClick={() => nav("/business/dashboard")} className="w-full py-3.5 text-white font-bold rounded-xl hover:opacity-90 transition-all shadow-lg" style={{ background: "linear-gradient(135deg, #EA6D06, #FFC605)", ...ffH, fontSize: "1rem" }}>
+                  Submit for Verification
+                </button>
+              </div>
+            </div>
+          )}
+
+          <div className="mt-6 text-center">
+            <p className="text-sm text-gray-500" style={ff}>
+              Are you a student?{" "}
+              <button onClick={() => nav("/student/login")} className="text-[#1B7FFD] font-semibold hover:underline">Sign up here</button>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
