@@ -6,7 +6,7 @@ export const UNIVERSITIES = [
   { abbr: "EAC", name: "Emilio Aguinaldo College – Cavite", color: B.tangerine },
   { abbr: "NCST", name: "National College of Science & Technology", color: B.sakura },
   { abbr: "AISAT", name: "AISAT College", color: B.solar },
-  { abbr: "CVSU", name: "CVSU Dasma", color: B.verdant },
+  { abbr: "CVSU", name: "CVSU Indang", color: B.verdant },
   { abbr: "SJC-PCU", name: "Saint Jude Dasma PCU", color: B.azure },
   { abbr: "TUP", name: "Technological University Philippines", color: B.tangerine },
   { abbr: "KLD", name: "KLD College", color: B.sakura },
