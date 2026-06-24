@@ -3,7 +3,7 @@ import { useNavigate } from "react-router";
 import { ArrowRight, Menu, Printer, X } from "lucide-react";
 import { ImageWithFallback } from "@/app/components/figma/ImageWithFallback";
 import logoFull from "@/imports/primary.png";
-import { B, ff, ffH } from "./shared";
+import { B, ff, ffH } from "@/app/components/shared";
 
 function Navbar() {
   const nav = useNavigate();

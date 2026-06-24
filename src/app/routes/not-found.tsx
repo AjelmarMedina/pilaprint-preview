@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router";
-import { ff, ffH } from "./shared";
+import { ff, ffH } from "@/app/components/shared";
 
 export function NotFoundPage() {
   const nav = useNavigate();

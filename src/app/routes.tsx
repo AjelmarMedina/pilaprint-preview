@@ -4,7 +4,7 @@ import {
 } from "react-router";
 import { ImageWithFallback } from "@/app/components/figma/ImageWithFallback";
 import logoFull from "@/imports/primary.png";
-import { B, StatusBadge, ff, ffH } from "./routes/shared";
+import { B, StatusBadge, ff, ffH } from "@/app/components/shared";
 import {
   BIZ_ORDERS,
   INVENTORY,
@@ -14,9 +14,20 @@ import {
   STUDENT_ORDERS,
   UNIVERSITIES,
   WEEKLY_DATA,
-} from "./routes/data";
+} from "@/app/data";
 import { LandingPage as LandingPageRoute } from "./routes/page";
 import { NotFoundPage as NotFoundPageRoute } from "./routes/not-found";
+import { StudentLoginPage as StudentLoginPageRoute } from "./routes/student/login/page";
+import { StudentRegisterPage as StudentRegisterPageRoute } from "./routes/student/register/page";
+import { StudentDashboardLayout as StudentDashboardLayoutRoute } from "./routes/student/dashboard/layout";
+import { StudentDashboardPage as StudentDashboardPageRoute } from "./routes/student/dashboard/page";
+import { StudentOrdersPage as StudentOrdersPageRoute } from "./routes/student/dashboard/orders/page";
+import { StudentWalletPage as StudentWalletPageRoute } from "./routes/student/dashboard/wallet/page";
+import { StudentQueuePage as StudentQueuePageRoute } from "./routes/student/dashboard/queue/page";
+import { StudentDocumentsPage as StudentDocumentsPageRoute } from "./routes/student/dashboard/documents/page";
+import { StudentShopsPage as StudentShopsPageRoute } from "./routes/student/shops/page";
+import { StudentOrderFlowPage as StudentOrderFlowPageRoute } from "./routes/student/order/page";
+import { StudentOrderSuccessPage as StudentOrderSuccessPageRoute } from "./routes/student/order/success/page";
 import {
   Upload, FileText, CreditCard, Bell, Star, MapPin, Printer,
   Package, Clock, CheckCircle, BarChart2, Wallet, Gift, Users,
@@ -1654,22 +1665,22 @@ export function NotFoundPage() {
 
 export const router = createBrowserRouter([
   { path: "/",                    Component: LandingPageRoute },
-  { path: "/student/login",       Component: StudentAuthPage },
-  { path: "/student/register",    Component: StudentAuthPage },
+  { path: "/student/login",       Component: StudentLoginPageRoute },
+  { path: "/student/register",    Component: StudentRegisterPageRoute },
   {
     path: "/student/dashboard",
-    Component: StudentDashboardLayout,
+    Component: StudentDashboardLayoutRoute,
     children: [
-      { index: true,              Component: StudentOverview },
-      { path: "orders",           Component: StudentOrders },
-      { path: "wallet",           Component: StudentWallet },
-      { path: "queue",            Component: StudentQueue },
-      { path: "documents",        Component: StudentDocuments },
+      { index: true,              Component: StudentDashboardPageRoute },
+      { path: "orders",           Component: StudentOrdersPageRoute },
+      { path: "wallet",           Component: StudentWalletPageRoute },
+      { path: "queue",            Component: StudentQueuePageRoute },
+      { path: "documents",        Component: StudentDocumentsPageRoute },
     ],
   },
-  { path: "/student/shops",              Component: ShopBrowserPage },
-  { path: "/student/order",             Component: OrderFlowPage },
-  { path: "/student/order/success",     Component: OrderQueuePage },
+  { path: "/student/shops",              Component: StudentShopsPageRoute },
+  { path: "/student/order",             Component: StudentOrderFlowPageRoute },
+  { path: "/student/order/success",     Component: StudentOrderSuccessPageRoute },
   { path: "/business/login",            Component: BusinessAuthPage },
   { path: "/business/register",         Component: BusinessAuthPage },
   {

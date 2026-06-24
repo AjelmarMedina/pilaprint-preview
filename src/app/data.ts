@@ -1,4 +1,4 @@
-import { B } from "./shared";
+import { B } from "@/app/components/shared";
 
 export const UNIVERSITIES = [
   { abbr: "NU-D", name: "National University – Dasmariñas", color: B.azure },
