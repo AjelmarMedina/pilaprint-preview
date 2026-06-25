@@ -197,6 +197,10 @@ export function StudentOrderFlowPage() {
                 </button>
               ))}
             </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1.5" style={ff}>Voucher Code</label>
+              <input type="text" placeholder="Enter your voucher code..." className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-sm focus:outline-none focus:ring-2 focus:ring-[#1B7FFD]/30 focus:border-[#1B7FFD] transition-all" style={ff} />
+            </div>
             <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
               <h3 className="font-bold text-gray-800 mb-4" style={ffH}>Order Summary</h3>
               <div className="space-y-2">
