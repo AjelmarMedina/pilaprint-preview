@@ -2,8 +2,11 @@ import { useState } from "react";
 import {
   createBrowserRouter, useNavigate, Outlet, NavLink, useLocation,
 } from "react-router";
+
 import { LandingPage as LandingPageRoute } from "./routes/page";
+import { TermsPage as TermsPageRoute } from "./routes/terms/page";
 import { NotFoundPage as NotFoundPageRoute } from "./routes/not-found";
+
 import { StudentLoginPage as StudentLoginPageRoute } from "./routes/student/login/page";
 import { StudentRegisterPage as StudentRegisterPageRoute } from "./routes/student/register/page";
 import { StudentDashboardLayout as StudentDashboardLayoutRoute } from "./routes/student/dashboard/layout";
@@ -15,6 +18,7 @@ import { StudentDocumentsPage as StudentDocumentsPageRoute } from "./routes/stud
 import { StudentShopsPage as StudentShopsPageRoute } from "./routes/student/shops/page";
 import { StudentOrderFlowPage as StudentOrderFlowPageRoute } from "./routes/student/order/page";
 import { StudentOrderSuccessPage as StudentOrderSuccessPageRoute } from "./routes/student/order/success/page";
+
 import { BusinessLoginPage as BusinessLoginPageRoute } from "./routes/business/login/page";
 import { BusinessRegisterPage as BusinessRegisterPageRoute } from "./routes/business/register/page";
 import { BusinessDashboardLayout as BusinessDashboardLayoutRoute } from "./routes/business/dashboard/layout";
@@ -24,10 +28,9 @@ import { BusinessAnalyticsPage as BusinessAnalyticsPageRoute } from "./routes/bu
 import { BusinessInventoryPage as BusinessInventoryPageRoute } from "./routes/business/dashboard/inventory/page";
 import { BusinessQueuePage as BusinessQueuePageRoute } from "./routes/business/dashboard/queue/page";
 
-// ─── Router ───────────────────────────────────────────────────────────────────
-
 export const router = createBrowserRouter([
   { path: "/",                    Component: LandingPageRoute },
+  { path: "/terms",               Component: TermsPageRoute },
   { path: "/student/login",       Component: StudentLoginPageRoute },
   { path: "/student/register",    Component: StudentRegisterPageRoute },
   {
