@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 import { 
   ArrowRight, 
-  Menu, 
   Printer,
   X,
   FileText,
@@ -15,6 +14,7 @@ import {
   Star,
   MapPin,
   Package,
+  Check,
   Users
 } from 'lucide-react';
 import { ImageWithFallback } from "@/app/components/figma/ImageWithFallback";
@@ -26,6 +26,14 @@ import { Footer } from "../components/footer";
 
 export function LandingPage() {
   const nav = useNavigate();
+  const features = [
+    'Measure analaytics and insights',
+    '24/7 order tracking',
+    'Manage your inventory and orders',
+    'Real-time queue updates',
+    'No hidden fees'
+  ];
+
   return (
     <div className="min-h-screen bg-[#FEFDF8]" style={ff}>
       <Navbar />
@@ -168,14 +176,14 @@ export function LandingPage() {
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
-              { icon: <FileText size={22} />,    title: "Smart File Checker",    desc: "Auto-detects resolution, page size, margins, and format issues before printing.",                     color: B.azure },
-              { icon: <Package size={22} />,     title: "Thesis Packages",       desc: "Bundled proposal, defense, and final manuscript packages to save time.",                              color: B.verdant },
-              { icon: <Users size={22} />,       title: "Group Orders",          desc: "Members upload individually — system consolidates into one order and billing.",                       color: B.tangerine },
-              { icon: <Wallet size={22} />,      title: "Printing Wallet",       desc: "Load credits for faster checkout with cashback, loyalty points, and discounts.",                     color: B.solar },
-              { icon: <Clock size={22} />,       title: "Real-Time Queue",       desc: "Get your queue number and estimated claim time the moment your order is ready.",                     color: B.sakura },
-              { icon: <Bell size={22} />,        title: "Instant Notifications", desc: "Receive updates at every stage — from processing to ready for pickup.",                              color: B.azure },
-              { icon: <CreditCard size={22} />,  title: "Flexible Payments",     desc: "Pay via GCash, Maya, debit/credit cards, or cash upon pickup.",                                     color: B.tangerine },
-              { icon: <Star size={22} />,        title: "Shop Ratings",          desc: "Choose shops by ratings, reviews, distance, and services offered.",                                 color: B.verdant },
+              { icon: <FileText size={22} />,    title: "Smart File Checker",    desc: "Auto-detects resolution, page size, margins, and format issues before printing.", color: B.azure },
+              { icon: <Package size={22} />,     title: "Thesis Packages",       desc: "Bundled proposal, defense, and final manuscript packages to save time.",          color: B.verdant },
+              { icon: <Users size={22} />,       title: "Group Orders",          desc: "Members upload individually — system consolidates into one order and billing.",   color: B.tangerine },
+              { icon: <Wallet size={22} />,      title: "Printing Wallet",       desc: "Load credits for faster checkout with cashback, loyalty points, and discounts.",  color: B.solar },
+              { icon: <Clock size={22} />,       title: "Real-Time Queue",       desc: "Get your queue number and estimated claim time the moment your order is ready.",  color: B.sakura },
+              { icon: <Bell size={22} />,        title: "Instant Notifications", desc: "Receive updates at every stage — from processing to ready for pickup.",           color: B.azure },
+              { icon: <CreditCard size={22} />,  title: "Flexible Payments",     desc: "Pay via GCash, Maya, debit/credit cards, or cash upon pickup.",                   color: B.tangerine },
+              { icon: <Star size={22} />,        title: "Shop Ratings",          desc: "Choose shops by ratings, reviews, distance, and services offered.",               color: B.verdant },
             ].map((f) => (
               <div key={f.title} className="p-5 rounded-2xl border border-gray-100 hover:shadow-md transition-all hover:-translate-y-0.5 cursor-pointer">
                 <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-3 text-white" style={{ background: f.color }}>{f.icon}</div>
@@ -186,6 +194,115 @@ export function LandingPage() {
           </div>
         </div>
       </section>
+
+      {/* Pricing */}
+      <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-center px-[16px] py-[64px] relative size-full">
+        <div className="max-w-[1280px] relative shrink-0 w-full">
+          <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-center gap-[48px] relative size-full">
+            {/* Heading */}
+            <div className="relative shrink-0 w-full">
+              <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-center relative size-full">
+                <p 
+                  className="font-bold leading-[36px] relative text-[#101828] text-[30px] text-center mb-2" 
+                  style={ffH}
+                >
+                  One price for your business' needs
+                </p>
+                <p className="leading-[20px] not-italic relative shrink-0 text-[#6a7282] text-[14px] text-center">
+                  No hidden fees, no surprises.
+                </p>
+              </div>
+            </div>
+
+            {/* Pricing Card */}
+            <div className="bg-gradient-to-br relative rounded-[32px] p-[48px] max-w-[480px] w-full mx-auto shadow-[0px_20px_40px_rgba(27,127,253,0.25)]" style={{ background: B.tangerine }}>
+              <div className="flex flex-col items-center gap-[32px]">
+                {/* Price */}
+                <div className="flex flex-col items-center gap-[8px]">
+                  <div className="flex items-baseline gap-[8px]">
+                    <span 
+                      className="font-bold text-white text-[56px] leading-none"
+                      style={ffH}
+                    >
+                      ₱1,299
+                    </span>
+                  </div>
+                  <p className="text-white/90 text-[16px]">
+                    per month
+                  </p>
+                </div>
+
+                {/* Features */}
+                <div className="flex flex-col gap-[16px] w-full">
+                  {features.map((feature, index) => (
+                    <div key={index} className="flex items-center gap-[12px]">
+                      <div className="bg-white/20 rounded-full p-[6px] shrink-0">
+                        <Check className="w-[16px] h-[16px] text-white" strokeWidth={3} />
+                      </div>
+                      <p className="text-white text-[14px]">
+                        {feature}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+
+                {/* CTA Button */}
+                <a href="/business/login">
+                  <button className="bg-white hover:bg-gray-50 transition-colors relative rounded-[12px] py-[16px] px-[32px] w-full mt-[16px] shadow-lg">
+                    <span
+                      className="font-bold text-[16px]"
+                      style={ffH}
+                    >
+                      Get Started Now
+                    </span>
+                  </button>
+                </a>
+
+                <p className="text-white/70 text-[12px] text-center">
+                  Limited spots available. Sign up before semester starts!
+                </p>
+              </div>
+            </div>
+
+            {/* Additional Info */}
+            <div className="flex flex-wrap justify-center gap-[32px] max-w-[800px]">
+              <div className="flex flex-col items-center gap-[8px] min-w-[160px]">
+                <p 
+                  className="font-bold text-[#1b7ffd] text-[24px]"
+                  style={ffH}
+                >
+                  No Setup Fee
+                </p>
+                <p className="text-[#6a7282] text-[12px]">
+                  Start printing immediately
+                </p>
+              </div>
+              <div className="flex flex-col items-center gap-[8px] min-w-[160px]">
+                <p 
+                  className="font-bold text-[#1b7ffd] text-[24px]"
+                  style={ffH}
+                >
+                  Cancel Anytime
+                </p>
+                <p className="text-[#6a7282] text-[12px]">
+                  No long-term commitment
+                </p>
+              </div>
+              <div className="flex flex-col items-center gap-[8px] min-w-[160px]">
+                <p 
+                  className="font-bold text-[#1b7ffd] text-[24px]"
+                  style={ffH}
+                >
+                  Money Back
+                </p>
+                <p className="text-[#6a7282] text-[12px]">
+                  30-day guarantee
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* CTA */}
       <section className="py-20 px-4">
