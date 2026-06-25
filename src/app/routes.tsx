@@ -27,6 +27,7 @@ import { BusinessTransactionsPage as BusinessTransactionsPageRoute } from "./rou
 import { BusinessAnalyticsPage as BusinessAnalyticsPageRoute } from "./routes/business/dashboard/analytics/page";
 import { BusinessInventoryPage as BusinessInventoryPageRoute } from "./routes/business/dashboard/inventory/page";
 import { BusinessQueuePage as BusinessQueuePageRoute } from "./routes/business/dashboard/queue/page";
+import { BusinessOrderDetailsPage as BusinessOrderDetailsPageRoute } from "./routes/business/dashboard/orders/page";
 
 export const router = createBrowserRouter([
   { path: "/",                    Component: LandingPageRoute },
@@ -58,6 +59,7 @@ export const router = createBrowserRouter([
       { path: "analytics",        Component: BusinessAnalyticsPageRoute },
       { path: "inventory",        Component: BusinessInventoryPageRoute },
       { path: "queue",            Component: BusinessQueuePageRoute },
+      { path: "orders",           Component: BusinessOrderDetailsPageRoute },
     ],
   },
   { path: "*",                    Component: NotFoundPageRoute },

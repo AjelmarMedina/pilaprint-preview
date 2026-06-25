@@ -32,11 +32,187 @@ export const STUDENT_ORDERS = [
 ];
 
 export const BIZ_ORDERS = [
-  { id: "PP-104", customer: "Maria Santos", service: "Colored Printing", payment: "GCash", amount: 120, status: "completed" },
-  { id: "PP-105", customer: "Juan dela Cruz", service: "Thesis Binding", payment: "Cash", amount: 350, status: "ongoing" },
-  { id: "PP-106", customer: "Ana Reyes", service: "B&W Printing", payment: "Maya", amount: 45, status: "pending" },
-  { id: "PP-107", customer: "Carlos Mendoza", service: "Laminating", payment: "GCash", amount: 75, status: "ready" },
-  { id: "PP-108", customer: "Liza Cruz", service: "Defense Package", payment: "Card", amount: 850, status: "completed" },
+  { 
+    id: "PP-104", 
+    customer: "Maria Santos", 
+    service: "Colored Printing", 
+    payment: "GCash", 
+    amount: 120, 
+    status: "completed",
+    date: "Jun 17, 2026",
+    files: [
+      { name: "Thesis_Abstract.pdf", type: "pdf", size: "2.4 MB" },
+      { name: "Thesis_Chapter1.pdf", type: "pdf", size: "5.1 MB" }
+    ],
+    specifications: {
+      color: "Full Color",
+      sides: "Double-sided",
+      copies: 3,
+      paperSize: "A4",
+      binding: "Spiral",
+      laminating: false
+    },
+    paymentDetails: {
+      method: "GCash",
+      status: "Paid",
+      total: 120,
+      breakdown: [
+        { item: "Color Printing (8 pages)", cost: 80 },
+        { item: "Double-sided", cost: 20 },
+        { item: "Spiral Binding", cost: 20 }
+      ]
+    },
+    delivery: {
+      type: "Pickup",
+      schedule: "Jun 18, 2026, 3:00 PM",
+      location: "PrintMaster Dasmariñas",
+      queueNumber: "PP-104"
+    }
+  },
+  { 
+    id: "PP-105", 
+    customer: "Juan dela Cruz", 
+    service: "Thesis Binding", 
+    payment: "Cash", 
+    amount: 350, 
+    status: "ongoing",
+    date: "Jun 17, 2026",
+    files: [
+      { name: "Thesis_Final.docx", type: "docx", size: "8.7 MB" },
+      { name: "Thesis_Figures.pptx", type: "pptx", size: "15.2 MB" }
+    ],
+    specifications: {
+      color: "Black & White",
+      sides: "Single-sided",
+      copies: 1,
+      paperSize: "Legal",
+      binding: "Hardbound",
+      laminating: true
+    },
+    paymentDetails: {
+      method: "Cash upon pickup",
+      status: "Processing",
+      total: 350,
+      breakdown: [
+        { item: "Printing (80 pages)", cost: 200 },
+        { item: "Hardbound Binding", cost: 100 },
+        { item: "Laminating", cost: 50 }
+      ]
+    },
+    delivery: {
+      type: "Pickup",
+      schedule: "Jun 19, 2026, 2:00 PM",
+      location: "Quick Copy Hub",
+      queueNumber: "PP-105"
+    }
+  },
+  { 
+    id: "PP-106", 
+    customer: "Ana Reyes", 
+    service: "B&W Printing", 
+    payment: "Maya", 
+    amount: 45, 
+    status: "pending",
+    date: "Jun 18, 2026",
+    files: [
+      { name: "Essay.pdf", type: "pdf", size: "0.8 MB" }
+    ],
+    specifications: {
+      color: "Black & White",
+      sides: "Single-sided",
+      copies: 5,
+      paperSize: "A4",
+      binding: "None",
+      laminating: false
+    },
+    paymentDetails: {
+      method: "Maya",
+      status: "Pending Payment",
+      total: 45,
+      breakdown: [
+        { item: "B&W Printing (9 pages)", cost: 45 }
+      ]
+    },
+    delivery: {
+      type: "Pickup",
+      schedule: "Jun 19, 2026, 10:00 AM",
+      location: "PrintMaster Dasmariñas",
+      queueNumber: "PP-106"
+    }
+  },
+  { 
+    id: "PP-107", 
+    customer: "Carlos Mendoza", 
+    service: "Laminating", 
+    payment: "GCash", 
+    amount: 75, 
+    status: "ready",
+    date: "Jun 18, 2026",
+    files: [
+      { name: "ID_Picture.jpg", type: "jpg", size: "1.2 MB" },
+      { name: "Certificate.pdf", type: "pdf", size: "0.5 MB" }
+    ],
+    specifications: {
+      color: "N/A",
+      sides: "N/A",
+      copies: 1,
+      paperSize: "A4",
+      binding: "N/A",
+      laminating: true
+    },
+    paymentDetails: {
+      method: "GCash",
+      status: "Paid",
+      total: 75,
+      breakdown: [
+        { item: "Laminating (2 items)", cost: 75 }
+      ]
+    },
+    delivery: {
+      type: "Pickup",
+      schedule: "Ready for pickup",
+      location: "PrintMaster Dasmariñas",
+      queueNumber: "PP-107"
+    }
+  },
+  { 
+    id: "PP-108", 
+    customer: "Liza Cruz", 
+    service: "Defense Package", 
+    payment: "Card", 
+    amount: 850, 
+    status: "completed",
+    date: "Jun 16, 2026",
+    files: [
+      { name: "Defense_Presentation.pptx", type: "pptx", size: "22.4 MB" },
+      { name: "Handouts.docx", type: "docx", size: "1.1 MB" }
+    ],
+    specifications: {
+      color: "Full Color",
+      sides: "Double-sided",
+      copies: 10,
+      paperSize: "A4",
+      binding: "Spiral",
+      laminating: false
+    },
+    paymentDetails: {
+      method: "Credit Card",
+      status: "Paid",
+      total: 850,
+      breakdown: [
+        { item: "Color Printing (50 pages)", cost: 500 },
+        { item: "Double-sided", cost: 125 },
+        { item: "Spiral Binding", cost: 100 },
+        { item: "10 Copies", cost: 125 }
+      ]
+    },
+    delivery: {
+      type: "Pickup",
+      schedule: "Jun 17, 2026, 11:00 AM",
+      location: "PrintMaster Dasmariñas",
+      queueNumber: "PP-108"
+    }
+  },
 ];
 
 export const REVENUE_DATA = [

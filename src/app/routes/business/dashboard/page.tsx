@@ -1,9 +1,17 @@
+import { useState } from "react";
+import { useNavigate } from "react-router";
 import { Area, AreaChart, Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import { CheckCircle, Clock, RefreshCw, ShoppingBag, TrendingUp } from "lucide-react";
 import { B, StatusBadge, ff, ffH } from "@/app/components/shared";
 import { BIZ_ORDERS, REVENUE_DATA, SERVICE_DATA } from "@/app/data";
 
 export function BusinessDashboardPage() {
+  const navigate = useNavigate();
+  
+  const handleOrderClick = (orderId: string) => {
+    navigate(`/business/dashboard/orders/`);
+  };
+
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
@@ -82,7 +90,11 @@ export function BusinessDashboardPage() {
             </thead>
             <tbody>
               {BIZ_ORDERS.slice(0, 4).map((o) => (
-                <tr key={o.id} className="border-b border-gray-50 hover:bg-gray-50 transition-colors">
+                <tr 
+                  key={o.id} 
+                  className="border-b border-gray-50 hover:bg-gray-50 transition-colors cursor-pointer"
+                  onClick={() => handleOrderClick(o.id)}
+                >
                   <td className="py-3 pr-6 text-sm font-mono font-semibold text-gray-700">{o.id}</td>
                   <td className="py-3 pr-6 text-sm text-gray-700" style={ff}>{o.customer}</td>
                   <td className="py-3 pr-6 text-sm text-gray-600" style={ff}>{o.service}</td>
