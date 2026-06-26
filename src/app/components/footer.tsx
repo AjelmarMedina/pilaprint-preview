@@ -27,7 +27,7 @@ export function Footer() {
                     href={"#"}
                     onClick={link === "Terms & Conditions" ? (e) => {
                       e.preventDefault()
-                      nav("/business/login")
+                      nav("/terms")
                     } : undefined}
                     className="text-gray-400 text-sm hover:text-white transition-colors" 
                     style={ff}
